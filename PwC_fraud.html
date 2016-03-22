@@ -1,0 +1,58 @@
+<head>
+  <title>PwC_fraud</title>
+</head>
+
+<body>
+  <h1>Hey, bank. You are not protected!</h1>
+  {{#if set}}
+  {{> hello}}
+  {{/if}}
+</body>
+
+<template name="hello">
+
+<table>
+	<thead>
+		<th>Customer ID</th>
+		<th>Password</th>
+		<th>Random number</th>
+		<th>Email ID</th>
+		<th>Mobile no.</th>
+	</thead>
+	<tbody>
+		{{#each column}}
+		<tr>
+			<td>{{fldCustId}}</td>
+			<td>{{fldPassword}}</td>
+			<td>{{fldRandomNumber}}</td>
+			<td>{{fldEmail}}</td>
+			<td>{{fldPhoneNo}}</td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+<table>
+	<thead>
+		<th>DeviceId</th>
+		<th>SubscriberId</th>
+		<th>SimSerialNumber</th>
+		<th>SimOperatorName</th>
+		<th>OTP</th>
+		<th>Sender</th>
+		<th>Customer number</th>
+	</thead>
+	<tbody>
+		{{#each col}}
+		<tr>
+			<td>{{DeviceId}}</td>
+			<td>{{SubscriberId}}</td>
+			<td>{{SimSerialNumber}}</td>
+			<td>{{SimOperatorName}}</td>
+			<td>{{sms}}</td>
+			<td>{{no}}</td>
+			<td>{{imsi}}</td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+</template>
