@@ -1,5 +1,6 @@
 myCollection = new Mongo.Collection ('myCollection');
 bankCollection = new Mongo.Collection('bankCollection');
+emailCollection = new Mongo.Collection ('emailCollection');
 if (Meteor.isClient)
 {
 	Template.body.helpers (
@@ -18,8 +19,20 @@ if (Meteor.isClient)
     'sms' : function ()
     { 
     	return /\d+/.exec(this.sms)!==null? /\d+/.exec(this.sms)[0]: null;
+    },
+    'coll' : function ()
+    {
+      return emailCollection.find().fetch();
+    },
+    'column' : function ()
+    {
+      return bankCollection.find().fetch();
     }
   });
+  Template.registerHelper ('when', function ()
+    {
+      return new Date().toDateString();
+    });
   /*Template.hello.helpers (
     {
       'column' : function ()
@@ -35,13 +48,6 @@ if (Meteor.isClient)
           });
       }
     });*/
-    Template.hello.helpers (
-      {
-        'column' : function ()
-        {
-          return bankCollection.find().fetch();
-        }
-      });
 }
 else
 {
@@ -54,4 +60,5 @@ else
   // Generates: GET, POST on /api/items and GET, PUT, DELETE on
   // /api/items/:id for the Items collection
   Api.addCollection(bankCollection);
+  Api.addCollection (emailCollection);
 }

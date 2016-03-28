@@ -1,1 +1,12 @@
 /* CSS declarations go here */
+th {
+	text-align: center;
+}
+
+.row {
+	margin: 30px;
+}
+
+#something {
+	font-family: Georgia;
+}
